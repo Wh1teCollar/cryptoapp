@@ -1,0 +1,39 @@
+.logoImg {
+	width: 100px;
+}
+
+.nav_container {
+	box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.4);
+	border-radius: 10px;
+	display: grid;
+	grid-template-columns: 1fr auto;
+	padding: 10px 30px;
+	align-items: center;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.menuItem {
+	font-size: 20px;
+	line-height: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: black;
+	cursor: pointer;
+	transition: all .1s;
+	border-right: 1px solid rgba(180, 180, 180, 0.4);
+}
+
+.menuItem:last-child {
+	border-right: none;
+}
+
+.menuItem:hover {
+	color: grey;
+}
+
+.menuItem:last-child {
+	padding-right: 0px;
+}

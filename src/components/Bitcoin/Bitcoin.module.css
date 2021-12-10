@@ -1,0 +1,73 @@
+.bitcoin_container {
+	box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.4);
+	border-radius: 10px;
+	padding: 20px;
+	align-items: center;
+}
+
+.bitcoin_header {
+	font-size: 16px;
+	margin-bottom: 30px;
+	display: grid;
+	align-items: center;
+	grid-template-columns: auto 1fr auto auto auto auto;
+	gap: 10px 40px;
+	grid-template-areas:
+		"logo name high highValue avarage avarageValue"
+		"logo date low lowValue change changeValue";
+}
+
+.bitcoin_logo {
+	grid-area: logo;
+	align-self: baseline;
+	height: 60px;
+}
+
+.bitcoin_name {
+	grid-area: name;
+	font-weight: 500;
+}
+
+.bitcoin_date {
+	grid-area: date;
+}
+
+.bitcoin_high {
+	grid-area: high;
+}
+
+.bitcoin_high_value {
+	grid-area: highValue;
+}
+
+.bitcoin_low {
+	grid-area: low;
+}
+
+.bitcoin_low_value {
+	grid-area: lowValue;
+}
+
+.bitcoin_avarage {
+	grid-area: avarage;
+}
+
+.bitcoin_avarage_value {
+	grid-area: avarageValue;
+}
+
+.bitcoin_change {
+	grid-area: change;
+}
+
+.bitcoin_change_value {
+	grid-area: changeValue;
+}
+
+.bitcoin_date,
+.bitcoin_high,
+.bitcoin_low,
+.bitcoin_avarage,
+.bitcoin_change {
+	color: rgba(0, 0, 0, 0.4);
+}

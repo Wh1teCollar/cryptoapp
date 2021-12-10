@@ -1,0 +1,35 @@
+.coin {
+	display: grid;
+	grid-template-columns: 93px 232px 133px 122px 139px 112px 148px 148px;
+	text-align: center;
+	align-items: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgba(180, 180, 180, 0.1);
+	color: black;
+	text-decoration: none;
+}
+
+.coin:hover {
+	background-color: rgba(180, 180, 180, 0.1);
+}
+
+.coin:last-child {
+	border-bottom: none;
+}
+
+.name {
+	text-align: left;
+	padding-left: 10px;
+}
+
+.nameBlock {
+	display: grid;
+	align-items: center;
+	grid-template-columns: 30px 1fr;
+}
+
+.nameBlock img {
+	width: 30px;
+	height: 30px;
+}
