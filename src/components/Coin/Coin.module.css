@@ -21,6 +21,8 @@
 .name {
 	text-align: left;
 	padding-left: 10px;
+	align-items: center;
+	align-content: center;
 }
 
 .nameBlock {
@@ -32,4 +34,105 @@
 .nameBlock img {
 	width: 30px;
 	height: 30px;
+}
+
+@media screen and (max-width:1200px) {
+	.coin {
+		display: grid;
+		grid-template-columns: 40px 1fr 90px 90px 90px;
+		grid-template-areas: "rank name priceUsd marketCapUsd changePercent24Hr";
+	}
+
+	.rank {
+		grid-area: rank;
+	}
+
+	.name {
+		grid-area: name;
+		text-align: left;
+	}
+
+	.nameBlock {
+		display: block;
+	}
+
+	.nameBlock img {
+		display: none;
+	}
+
+	.priceUsd {
+		grid-area: priceUsd;
+	}
+
+	.marketCapUsd {
+		grid-area: marketCapUsd;
+	}
+
+	.changePercent24Hr {
+		grid-area: changePercent24Hr;
+	}
+
+	.vwap24Hr,
+	.supply,
+	.volumeUsd24Hr {
+		display: none;
+	}
+}
+
+@media screen and (max-width:1200px) {
+	.coin {
+		display: grid;
+		grid-template-columns: 40px 1fr 90px 90px 90px;
+		grid-template-areas: "rank name priceUsd marketCapUsd changePercent24Hr";
+	}
+
+	.rank {
+		grid-area: rank;
+	}
+
+	.name {
+		grid-area: name;
+		text-align: left;
+	}
+
+	.nameBlock {
+		display: block;
+	}
+
+	.nameBlock img {
+		display: none;
+	}
+
+	.priceUsd {
+		grid-area: priceUsd;
+	}
+
+	.marketCapUsd {
+		grid-area: marketCapUsd;
+	}
+
+	.changePercent24Hr {
+		grid-area: changePercent24Hr;
+	}
+
+	.vwap24Hr,
+	.supply,
+	.volumeUsd24Hr {
+		display: none;
+	}
+}
+
+@media screen and (max-width:800px) {
+	.coin {
+		grid-template-columns: 40px 1fr 90px 90px;
+		grid-template-areas: "rank name priceUsd changePercent24Hr";
+	}
+
+
+	.vwap24Hr,
+	.supply,
+	.volumeUsd24Hr,
+	.marketCapUsd {
+		display: none;
+	}
 }

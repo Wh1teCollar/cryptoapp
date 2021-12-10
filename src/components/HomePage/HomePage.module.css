@@ -1,8 +1,7 @@
 .home_container {
 	box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.4);
 	border-radius: 10px;
-	display: grid;
-	grid-template-columns: 1fr auto;
+
 	padding: 20px;
 	align-items: center;
 	justify-content: center;
@@ -22,16 +21,53 @@
 	text-align: left;
 }
 
-.coin {
-	display: grid;
-	grid-template-columns: 93px 232px 133px 122px 139px 112px 148px 148px;
-	text-align: center;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	padding-bottom: 10px;
-	border-bottom: 1px solid rgba(180, 180, 180, 0.1);
+
+
+@media screen and (max-width:1200px) {
+	.coinTitle {
+		display: grid;
+		grid-template-columns: 40px 1fr 90px 90px 90px;
+		grid-template-areas: "rankTitle nameTitle priceUsdTitle marketCapUsdTitle changePercent24HrTitle";
+	}
+
+	.rankTitle {
+		grid-area: rankTitle;
+	}
+
+	.nameTitle {
+		grid-area: nameTitle;
+	}
+
+	.priceUsdTitle {
+		grid-area: priceUsdTitle;
+	}
+
+	.marketCapUsdTitle {
+		grid-area: marketCapUsdTitle;
+	}
+
+	.changePercent24HrTitle {
+		grid-area: changePercent24HrTitle;
+	}
+
+	.vwap24HrTitle,
+	.supplyTitle,
+	.volumeUsd24HrTitle {
+		display: none;
+	}
 }
 
-.coin:last-child {
-	border-bottom: none;
+@media screen and (max-width:800px) {
+	.coinTitle {
+		grid-template-columns: 40px 1fr 90px 90px;
+		grid-template-areas: "rankTitle nameTitle priceUsdTitle changePercent24HrTitle";
+	}
+
+
+	.vwap24HrTitle,
+	.supplyTitle,
+	.volumeUsd24HrTitle,
+	.marketCapUsdTitle {
+		display: none;
+	}
 }
