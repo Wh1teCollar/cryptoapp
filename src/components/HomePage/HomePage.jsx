@@ -16,7 +16,11 @@ const HomePage = () => {
 	}, [cryptosList]);
 
 	if (isFetching) return 'Loading...'
+	const pricesWs = new WebSocket('wss://ws.coincap.io/prices?assets=bitcoin,ethereum,binance-coin,cardano,tether,solana,xrp,polkadot,usd-coin,dogecoin,terra-luna,uniswap,avalanche,binance-usd,algorand')
 
+	pricesWs.onmessage = function (msg) {
+		console.log(msg.data)
+	}
 	return (
 		<div className={styles.home_container}>
 			<div className={styles.list}>
