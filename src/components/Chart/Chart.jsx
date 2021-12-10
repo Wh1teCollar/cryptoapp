@@ -12,7 +12,6 @@ import {
 	Tooltip,
 	Legend,
 } from 'chart.js';
-import faker from 'faker';
 
 ChartJS.register(
 	CategoryScale,
@@ -37,7 +36,7 @@ const Chart = () => {
 	}, [historyData]);
 
 	if (isFetching) return 'Loading...'
-
+	console.log(history)
 	const coinPrice = [];
 	const coinTimestamp = [];
 
@@ -48,6 +47,7 @@ const Chart = () => {
 
 	console.log(coinPrice)
 	console.log(coinTimestamp)
+
 	const chartData = {
 		labels: coinTimestamp,
 		datasets: [
