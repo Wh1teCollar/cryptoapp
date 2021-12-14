@@ -6,10 +6,10 @@ const Navbar = () => {
 	return (
 		<header className={styles.nav_container}>
 			<div className={styles.logo_container}>
-				<img
+				<Link to={`/`}><img
 					className={styles.logoImg}
 					src="https://coincap.io/static/logos/black.svg"
-					alt="Coincap logo" />
+					alt="Coincap logo" /></Link>
 			</div>
 			<div className={styles.menu}>
 				<Link className={styles.menuItem} to="/">Home</Link>

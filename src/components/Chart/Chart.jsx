@@ -25,9 +25,8 @@ ChartJS.register(
 
 const Chart = () => {
 
-	const { data, isFetching } = useGetCryptoDetailsQuery();
+	const { data, isFetching, isSuccess } = useGetCryptoDetailsQuery();
 	const historyData = data?.data;
-
 
 	const [history, setHistory] = useState(historyData)
 
@@ -35,18 +34,17 @@ const Chart = () => {
 		setHistory(historyData);
 	}, [historyData]);
 
-	if (isFetching) return 'Loading...'
-	console.log(history)
 	const coinPrice = [];
 	const coinTimestamp = [];
 
-	for (let i = 1; i < 364; i += 1) {
-		coinPrice.push(history[i]?.priceUsd);
-		coinTimestamp.push(new Date(history[i]?.time).toLocaleDateString());
-	}
+	if (isFetching) return 'isFetching...'
 
-	console.log(coinPrice)
-	console.log(coinTimestamp)
+	if (isSuccess && history) {
+		for (let i = 1; i < 364; i += 1) {
+			coinPrice.push(history[i]?.priceUsd);
+			coinTimestamp.push(new Date(history[i]?.time).toLocaleDateString());
+		}
+	}
 
 	const chartData = {
 		labels: coinTimestamp,
@@ -56,7 +54,8 @@ const Chart = () => {
 				data: coinPrice,
 				fill: false,
 				backgroundColor: '#0071bd',
-				borderColor: '#0071bd'
+				borderColor: '#0071bd',
+				tension: 0.5
 			}
 		]
 	}

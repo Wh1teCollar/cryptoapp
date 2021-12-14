@@ -7,7 +7,7 @@ import { useGetCryptosQuery } from '../../services/coincapApi';
 
 const HomePage = () => {
 
-	const { data, isFetching } = useGetCryptosQuery();
+	const { data, isFetching, isSuccess } = useGetCryptosQuery();
 	const cryptosList = data?.data;
 	const [cryptos, setCryptos] = useState(cryptosList)
 
@@ -16,11 +16,12 @@ const HomePage = () => {
 	}, [cryptosList]);
 
 	if (isFetching) return 'Loading...'
-	const pricesWs = new WebSocket('wss://ws.coincap.io/prices?assets=bitcoin,ethereum,binance-coin,cardano,tether,solana,xrp,polkadot,usd-coin,dogecoin,terra-luna,uniswap,avalanche,binance-usd,algorand')
 
+	const pricesWs = new WebSocket('wss://ws.coincap.io/prices?assets=bitcoin')
 	pricesWs.onmessage = function (msg) {
-		console.log(msg.data)
+		console.log("WebSoket Bitcoin--- " + JSON.parse(msg.data).bitcoin);
 	}
+
 	return (
 		<div className={styles.home_container}>
 			<div className={styles.list}>
