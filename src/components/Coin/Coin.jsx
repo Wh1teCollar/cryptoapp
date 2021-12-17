@@ -15,10 +15,10 @@ const Coin = (props) => {
 	if (isFetching) return 'Loading...';
 
 	function beautifier(number) {
-		let result = 0;
+		let result = number;
 		if (number * 10000 > 1) {
 			result = millify(parseFloat(number), {
-				precision: 2,
+				precision: 4,
 				decimalSeparator: ".",
 				space: true,
 				lowercase: true

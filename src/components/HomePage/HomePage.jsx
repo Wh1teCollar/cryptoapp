@@ -17,9 +17,25 @@ const HomePage = () => {
 
 	if (isFetching) return 'Loading...'
 
-	const pricesWs = new WebSocket('wss://ws.coincap.io/prices?assets=bitcoin')
-	pricesWs.onmessage = function (msg) {
-		console.log("WebSoket Bitcoin--- " + JSON.parse(msg.data).bitcoin);
+	if (isSuccess && cryptos) {
+		const coinList = [];
+		cryptos?.map(coin => (coinList.push(coin.id)))
+		const coinListString = coinList.join(',')
+		const pricesWs = new WebSocket(`wss://ws.coincap.io/prices?assets=${coinListString}`)
+		pricesWs.onmessage = function (msg) {
+			for (var coin = 0; coin < coinList.length; coin++) {
+				const coinName = coinList[coin];
+				const newPrice = (JSON.parse(msg.data))[coinName];
+				if (newPrice) {
+					const newCryptos = [...cryptos];
+					const coinObj = { ...cryptos[coin] }
+					coinObj.priceUsd = parseFloat(newPrice);
+					newCryptos[coin] = coinObj;
+					setCryptos(newCryptos);
+					console.log(`"WebSocket ${coinList[coin]} isSuccess`);
+				}
+			}
+		}
 	}
 
 	return (
